@@ -42,9 +42,25 @@ from PIL import ImageDraw
 from models import *
 from utils_dope import *
 
-
+import os
+import argparse
 import warnings
 warnings.filterwarnings("ignore")
+
+print(f"LOCAL_RANK: {os.environ['LOCAL_RANK']}")
+local_rank = int(os.environ['LOCAL_RANK'])
+torch.cuda.set_device(local_rank)
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--local_rank', type=int, default=0)
+parser.add_argument('--network', type=str, required=True)
+parser.add_argument('--epochs', type=int, required=True)
+parser.add_argument('--batchsize', type=int, required=True)
+parser.add_argument('--outf', type=str, required=True)
+parser.add_argument('--data', type=str, required=True)
+opt = parser.parse_args()
+
+torch.cuda.set_device(opt.local_rank)
 
 
 os.environ["CUDA_VISIBLE_DEVICES"]="0,1,2,3,4,5,6,7"
