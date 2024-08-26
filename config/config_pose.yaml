@@ -10,7 +10,7 @@ weights: {
     # "gelatin":"package://dope/weights/gelatin_60.pth",
     # "meat":"package://dope/weights/meat_20.pth",
     # "mustard":"package://dope/weights/mustard_60.pth",
-    "soup":"package://dope/weights/soup_60.pth",
+    # "soup":"package://dope/weights/soup_60.pth",
     #"sugar":"package://dope/weights/sugar_60.pth",
     # "bleach":"package://dope/weights/bleach_28_dr.pth"
     
@@ -43,6 +43,8 @@ weights: {
     # "TomatoSauce":"package://dope/weights/TomatoSauce.pth",
     # "Tuna":"package://dope/weights/Tuna.pth",
     # "Yogurt":"package://dope/weights/Yogurt.pth",
+    # "Iphone":"package://dope/weights/iphone/Iphone.pth",
+    # "Turbine" : "package://dope/weights/iphone/Turbine.pth"
 
 }
 
@@ -84,7 +86,9 @@ dimensions: {
     "GranolaBars" : [ 12.400600433349609, 3.8738000392913818, 16.53380012512207 ], 
     "Peaches" : [ 5.7781000137329102, 7.0961999893188477, 6.5925998687744141 ],
     "GreenBeans" : [ 5.758699893951416, 7.0608000755310059, 6.5732002258300781 ], 
-    "PeasAndCarrots" : [ 5.8512001037597656, 7.0636000633239746, 6.5918002128601074 ] 
+    "PeasAndCarrots" : [ 5.8512001037597656, 7.0636000633239746, 6.5918002128601074 ],
+    "iphone" : [ 2.199 , 1.059 , 0.12375 ],
+    "Turbine" : [ 36.17647 , 20 , 19,5588235 ]
 }
 
 class_ids: {
@@ -122,7 +126,10 @@ class_ids: {
     "GranolaBars"       : 33, 
     "Peaches"           : 34,
     "GreenBeans"        : 35, 
-    "PeasAndCarrots"    : 36 
+    "PeasAndCarrots"    : 36,
+    "iphone"            : 37,
+    "Turbine"            : 38,
+
 }
 
 draw_colors: {
