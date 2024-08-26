@@ -405,20 +405,43 @@ def main(args):
     # Set up blenderproc
     bp.init()
 
+    # # Set the camera to be in front of the object
+    # cam_pose = bp.math.build_transformation_mat([0, -25, 0], [np.pi / 2, 0, 0])
+    # bp.camera.add_camera_pose(cam_pose)
+    # bp.camera.set_resolution(args.width, args.height)
+    # if args.focal_length:
+    #     K = np.array([[args.focal_length, 0, args.width/2],
+    #                   [0, args.focal_length, args.height/2],
+    #                   [0,0,1]])
+    #     bp.camera.set_intrinsics_from_K_matrix(K, args.width, args.height, clip_start=1.0,
+    #                                            clip_end=1000.0)
+    # else:
+    #     bp.camera.set_intrinsics_from_blender_params(lens=0.785398, # FOV in radians
+    #                                                  lens_unit='FOV',
+    #                                                  clip_start=1.0, clip_end=1000.0)
+
     # Set the camera to be in front of the object
-    cam_pose = bp.math.build_transformation_mat([0, -25, 0], [np.pi / 2, 0, 0])
+    cam_pose = bp.math.build_transformation_mat([0, -23, 0], [np.pi / 2, 0, 0])
     bp.camera.add_camera_pose(cam_pose)
     bp.camera.set_resolution(args.width, args.height)
+
     if args.focal_length:
-        K = np.array([[args.focal_length, 0, args.width/2],
-                      [0, args.focal_length, args.height/2],
-                      [0,0,1]])
+        # Validate and convert focal length
+        if args.focal_length < 10:  # Assuming the focal length should be at least 10 pixels
+            print(f"Provided focal length {args.focal_length} is too small, adjusting to default 35mm equivalent in pixels.")
+            args.focal_length = 35  # Default focal length in pixels if provided value is too small
+        
+        K = np.array([[args.focal_length, 0, args.width / 2],
+                      [0, args.focal_length, args.height / 2],
+                      [0, 0, 1]])
         bp.camera.set_intrinsics_from_K_matrix(K, args.width, args.height, clip_start=1.0,
                                                clip_end=1000.0)
     else:
-        bp.camera.set_intrinsics_from_blender_params(lens=0.785398, # FOV in radians
+        # Set FOV as fallback
+        bp.camera.set_intrinsics_from_blender_params(lens=0.785398,  # FOV in radians
                                                      lens_unit='FOV',
                                                      clip_start=1.0, clip_end=1000.0)
+
 
     # Create lights
     #bp.renderer.set_world_background([1,1,1], 1.0)
