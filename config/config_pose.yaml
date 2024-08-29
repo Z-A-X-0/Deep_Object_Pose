@@ -44,7 +44,7 @@ weights: {
     # "Tuna":"package://dope/weights/Tuna.pth",
     # "Yogurt":"package://dope/weights/Yogurt.pth",
     # "Iphone":"package://dope/weights/iphone/Iphone.pth",
-    # "Turbine" : "package://dope/weights/iphone/Turbine.pth"
+    # "Turbine" : "package://dope/weights/turbine/Turbine.pth"
 
 }
 
@@ -88,7 +88,7 @@ dimensions: {
     "GreenBeans" : [ 5.758699893951416, 7.0608000755310059, 6.5732002258300781 ], 
     "PeasAndCarrots" : [ 5.8512001037597656, 7.0636000633239746, 6.5918002128601074 ],
     "iphone" : [ 2.199 , 1.059 , 0.12375 ],
-    "Turbine" : [ 36.17647 , 20 , 19,5588235 ]
+    "Turbine" : [ 17.8  , 6.71  , 24.6 ]
 }
 
 class_ids: {
